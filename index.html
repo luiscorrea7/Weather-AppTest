@@ -15,7 +15,23 @@
 
   </header>
   <main>
-    <container class="fluid">
+    <container>
+      <div class="row justify-content-center g-0 mt-5">
+        <div class="col-4">
+          <div class="countryFormDiv p-3">
+            <form id="formCountry">
+              <div class="mb-3 p-1">
+                <label for="countryInput" class="form-label fs-4 fw-bold">Ingrese su ciudad</label>
+                <input type="text" class="form-control" id="countryInput" required placeholder="Solo se mostrara el primer resultado encontrado">
+              </div>
+              <div class="p-2">
+                <p id="dataP" class="fs-5 fw-semibold"></p>
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </container>
   </main>
   <footer>
