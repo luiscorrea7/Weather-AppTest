@@ -1,6 +1,13 @@
 const formId = document.getElementById('formCountry');
 
-//-- obtiene los datos (Latitud, Longitud) con la ciudad
+/**
+ *  Ejecuta una petición a la API de geolocalización para obtener los datos de latitud y longitud,
+ *  (el objeto obtenido cuenta con mas keys ademas que latitud o longitud pero no son necesarios para seguir con la logica).
+ *
+ * @param {string} city - Recibe la ciudad.
+ * @returns {object} Devuelve un objeto con los datos de la ciudad ingresada.
+ */
+
 const getGeoData = async (city) => {
   try {
     const firstData = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city},ar&limit=1&appid=c254dde7ee55ef9170dcb20399e894d1`);
@@ -12,7 +19,15 @@ const getGeoData = async (city) => {
   }
 }
 
-//-- obtiene los datos del clima con la latitud y longitud
+/**
+ *  Recibe los datos del clima con la latitud y longitud obtenidas del objeto que retorna la funcion anterior.
+ *  Desestructura las keys de latitud (lat) y longitud(lon) y retorna un objeto con la data lista para pintar en pantalla.
+ *  Valida los datos ingresados en el formulario y prosigue con la segunda peticion al API del clima.
+ *
+ * @param {string} x - Recibe lo escrito en el input del formulario.
+ * @returns {object} Devuelve un objeto con los datos del clima.
+ */
+
 const getWeatherData = async (x) => {
   const cityData = await getGeoData(x);
   if (cityData !== undefined) {
@@ -31,8 +46,17 @@ const getWeatherData = async (x) => {
 }
 
 //-- Pinta en pantalla los datos obtenidos anteriormente
-const printData = async () => {
-
+const printData = async (x) => {
+  const { name, main, weather, wind, visibility, clouds, timezone } = await getWeatherData(x);
+  const tempDiv = document.getElementById('tempDiv');
+  tempDiv.innerHTML=`
+  <h2>Temperatura</h2>
+  <p class="fw-semibold fs-5">${name}</p>
+  <h1 class="tempCounter">${main.temp}°</h1>
+  <h3>Sensación Termica: ${main.feels_like}°</h3>
+  <p class="fw-semibold">Min: ${main.temp_min}° Max: ${main.temp_max}°</p>
+  <h4>Humedad: ${main.humidity}%</h4>
+  `
 }
 
 //-- Evento del formulario el cual da comienzo a toda la logica
@@ -40,7 +64,7 @@ formId.addEventListener('submit', (e) => {
  e.preventDefault();
  const countryName = document.getElementById('countryInput').value.split(" ").join("");
 
- getWeatherData(countryName)
+ printData(countryName);
 }, false);
 
 //---------- Test functions

@@ -17,3 +17,13 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
+.tempCounter {
+  font-size: 80px;
+}
+
+@media (max-width: 768px) {
+  #windDiv {
+    display: none;
+  }
+}
