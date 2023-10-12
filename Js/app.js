@@ -8,14 +8,17 @@ const getGeoData = async (city) => {
     return finalData[0];
   } catch (error) {
     console.log(error)
+    alert('No se pudo encontrar esta ciudad')
   }
 }
 
 const printDataLenLat = async (x) => {
   const cityData = await getGeoData(x);
   const dataParaph = document.getElementById('dataP');
-  dataParaph.innerHTML = `Su latitud es: ${cityData.lat} <br/> Su longitud es: ${cityData.lon}`
-  console.log(cityData)
+  if (cityData !== undefined) {
+    const { lat, lon, state, name } = cityData;
+    dataParaph.innerHTML = `Ciudad: ${name} <br/> ${state ? `Provincia: ${state} <br/>` : ''} Latitud: ${lat} <br/> Longitud: ${lon}`
+  } else return (alert('no se encontro esta ciudad'))
 }
 
 formId.addEventListener('submit', (e) => {
