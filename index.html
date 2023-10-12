@@ -6,6 +6,8 @@
   <meta name="author" content="Luis Correa">
   <meta name="description" content="pagina web del clima hecha para practicar">
   <meta name="keywords" content="Weather, Clima, Tiempo, Localización">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="Styles/styles.css">
   <title>Weather Web</title>
 </head>
 <body>
@@ -13,12 +15,43 @@
 
   </header>
   <main>
-
+    <container>
+      <div class="row justify-content-center align-content-center g-0 mt-5">
+        <div class="col-11 col-md-10 col-lg-4">
+          <div class="countryFormDiv p-3">
+            <h3 class="text-center fw-bold">Clima por ciudad</h3>
+            <form id="formCountry">
+              <div class="mb-3 p-1 text-center">
+                <label for="countryInput" class="form-label fs-4 fw-semibold">Ingrese una ciudad</label>
+                <input type="text" class="form-control" id="countryInput" required placeholder="Ciudad/municipio/comuna/departamento">
+              </div>
+              <div class="p-2">
+                <p id="dataP" class="fs-5 fw-semibold"></p>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </container>
+    <container>
+      <div class="row justify-content-center align-content-center g-0 mt-5">
+        <div class="countryFormDiv col-11 col-md-10 col-lg-3 text-center p-3" id="windDiv">
+        </div>
+        <div class="countryFormDiv col-11 col-md-10 col-lg-3 text-center p-3 mx-5 my-1" id="tempDiv">
+        </div>
+        <div class="countryFormDiv col-11 col-md-10 col-lg-3 text-center p-3" id="skyDiv">
+        </div>
+      </div>
+    </container>
   </main>
   <footer>
-
+    hola
   </footer>
   
   <script src="Js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,0 +1,29 @@
+.countryFormDiv {
+  background-color: beige;
+  border-radius: 15px;
+}
+
+body {
+  background-color: cornflowerblue;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.tempCounter {
+  font-size: 80px;
+}
+
+@media (max-width: 768px) {
+  #windDiv {
+    display: none;
+  }
+}
