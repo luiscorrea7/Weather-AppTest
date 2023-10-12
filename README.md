@@ -11,3 +11,8 @@
 ---
 ## Mas info
 ### Pagina hecha con el fin de practicar para el evento JS1.0 de RollingCode School
+
+---
+## Librerias utilizadas
+
+### [Sweetalert](https://sweetalert2.github.io)
