@@ -23,7 +23,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  #windDiv {
+  .mapDiv {
     display: none;
   }
   footer {
@@ -41,4 +41,15 @@ footer {
 
 .windIndicator {
   transform-origin: center;
+}
+
+.mapFrame {
+  height: 90%;
+  width: 90%;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.mapCustom {
+  background-color: beige;
 }
