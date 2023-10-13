@@ -49,6 +49,8 @@ const getWeatherData = async (x) => {
 const printData = async (x) => {
   const { name, main, weather, wind, visibility, clouds, timezone } = await getWeatherData(x);
   const tempDiv = document.getElementById('tempDiv');
+  const weatherDiv = document.getElementById('weatherDiv');
+
   tempDiv.innerHTML=`
   <h2>Temperatura</h2>
   <p class="fw-semibold fs-5">${name}</p>
@@ -57,12 +59,27 @@ const printData = async (x) => {
   <p class="fw-semibold">Min: ${main.temp_min}° Max: ${main.temp_max}°</p>
   <h4>Humedad: ${main.humidity}%</h4>
   `
+  //--
+  console.log(weather[0])
+  weatherDiv.innerHTML=`
+  <h2>Clima</h2>
+  <p class="fw-light">${weather[0].description.toUpperCase()}</p>
+  <div class="iconDiv d-flex justify-content-center align-items-center">
+    <img src="https://openweathermap.org/img/wn/${weather[0].icon}.png" alt="icono del clima">
+  </div>
+  <h2 class="mt-3">Viento</h2>
+  <p class="fw-semibold">Velocidad: ${wind.speed}KM/H</p>
+  <p class="fw-semibold">${wind.deg}°</p>
+  <div class="windCircle d-flex justify-content-center align-items-center">
+    <div class="windIndicator fw-bold" style="transform: rotate(${wind.deg}deg);">==></div>
+  </div>
+  `
 }
 
 //-- Evento del formulario el cual da comienzo a toda la logica
 formId.addEventListener('submit', (e) => {
  e.preventDefault();
- const countryName = document.getElementById('countryInput').value.split(" ").join("");
+ const countryName = document.getElementById('countryInput').value.split(" ").join("+");
 
  printData(countryName);
 }, false);
