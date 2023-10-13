@@ -11,11 +11,11 @@ body {
 }
 
 footer {
-  padding: 10px;
   text-align: center;
   position: fixed;
   bottom: 0;
   width: 100%;
+  background-color: beige;
 }
 
 .tempCounter {
@@ -23,7 +23,33 @@ footer {
 }
 
 @media (max-width: 768px) {
-  #windDiv {
+  .mapDiv {
     display: none;
   }
+  footer {
+    display: none;
+  }
+}
+
+.iconDiv {
+  width: 60px;
+  height: 60px;
+  background-color: cornflowerblue;
+  border-radius: 15px;
+  border: black solid 2px;
+}
+
+.windIndicator {
+  transform-origin: center;
+}
+
+.mapFrame {
+  height: 90%;
+  width: 90%;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.mapCustom {
+  background-color: beige;
 }
